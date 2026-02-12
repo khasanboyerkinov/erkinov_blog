@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ro‘yxatdan o‘tish | Khasanboy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Loader -->
+<!-- <div id="loader" class="loader">
+  <div class="spinner"></div>
+</div> -->
+
+<!-- Floating Instagram -->
+<a class="float-wa" href="https://www.instagram.com/erknv_hd/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+</a>
+
+<header class="header">
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html">
+        <img class="logo-img" src="img/1-Photoroom.png" alt="Logo">
+      </a>
+      <!-- Mobile: toggle logo yonida chiqadi -->
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+
+    <nav>
+      <a href="index.html" class="active">Bosh sahifa</a>
+      <a href="about.html">Men haqimda</a>
+      <a href="services.html">Xizmatlar</a>
+      <a href="register.html" class="active">Ro‘yxatdan o‘tish</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="register-head">
+  <h2 class="title">Ro‘yxatdan o‘tish</h2>
+  <h3 class="subtitle">( Biz bilan bog'laning )</h3>
+</div>
+
+
+ <form class="register-form" id="regForm">
+  <input type="text" id="name" placeholder="Ismingiz" required minlength="2">
+  <input type="date" id="birth" required max="2015-12-31">
+  <textarea id="message" placeholder="Izoh..." rows="4" required minlength="5"></textarea>
+
+  <button type="submit" id="submitBtn" class="btn primary" disabled>Ro‘yxatdan o‘tish</button>
+  <p id="formHint" style="opacity:.7;font-size:13px">Barcha malumotlarni to‘ldiring</p>
+</form>
+
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer-wrap">
+    <p>© 2026 • Create by <strong>Khasanboy</strong></p>
+    <div class="socials">
+      <a href="https://www.instagram.com/erknv_hd/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://t.me/videolar_pg_4k" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram"></a>
+      <a href="https://wa.me/998XXXXXXXXX" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"></a>
+    </div>
+  </div>
+</footer>
+<script>
+  const TG_LINK = "https://t.me/Hasanboy_ooo"; // profilingiz
+
+  const form = document.getElementById("regForm");
+  const nameInput = document.getElementById("name");
+  const birthInput = document.getElementById("birth");
+  const msgInput = document.getElementById("message");
+  const submitBtn = document.getElementById("submitBtn");
+  const hint = document.getElementById("formHint");
+
+  // Sana cheklovi: 2015-12-31 dan keyin bo‘lmasin
+  birthInput.max = "2015-12-31";
+
+  function validateForm(){
+    const nameOk = nameInput.value.trim().length >= 2;
+    const birthOk = !!birthInput.value && new Date(birthInput.value) <= new Date("2015-12-31");
+    const msgOk = msgInput.value.trim().length >= 5;
+
+    const allOk = nameOk && birthOk && msgOk;
+    submitBtn.disabled = !allOk;
+    hint.textContent = allOk ? "Ro‘yxatdan o‘tishga tayyor ✅" : "Barcha malumotlarni to‘ldiring";
+  }
+
+  nameInput.addEventListener("input", validateForm);
+  birthInput.addEventListener("change", validateForm);
+  msgInput.addEventListener("input", validateForm);
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    // Hammasi to‘g‘ri bo‘lsa — Telegram profilingizga o‘tadi
+    window.location.href = TG_LINK;
+  });
+</script>
+<!-- JS -->
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+
+  // Theme toggle
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    root.classList.add('light');
+    toggle.textContent = '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    root.classList.toggle('light');
+    const isLight = root.classList.contains('light');
+    toggle.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>

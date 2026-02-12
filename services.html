@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xizmatlar | Khasanboy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- Loader -->
+<div id="loader" class="loader">
+  <div class="spinner"></div>
+</div>
+
+<!-- Floating Instagram -->
+<a class="float-wa" href="https://www.instagram.com/erknv_hd/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+</a>
+<header class="header">
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html">
+        <img class="logo-img" src="img/1-Photoroom.png" alt="Logo">
+      </a>
+      <!-- Mobile: toggle logo yonida chiqadi -->
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+
+    <nav>
+      <a href="index.html" class="active">Bosh sahifa</a>
+      <a href="about.html">Men haqimda</a>
+      <a href="services.html">Xizmatlar</a>
+      <a href="register.html" class="active">Ro‘yxatdan o‘tish</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">Xizmatlarim</h2>
+    <div class="grid">
+      <div class="card"><img src="img/social-media-marketing-smm-services.jpg"><h3>SMM</h3><p>Instagram kontent reja, target yo‘naltirish.</p></div>
+      <div class="card"><img src="img/Рабочий стол/1.png"><h3>Logo Maker</h3><p>Minimal va zamonaviy logo.</p></div>
+      <div class="card"><img src="img/editor.webp"><h3>Editor</h3><p>Postlar va vizual tahrir.</p></div>
+      <div class="card"><img src="img/mobil.jfif"><h3>Mobilograf</h3><p>Telefon bilan professional video.</p></div>
+      <div class="card"><img src="img/dasturlash.webp"><h3>Dasturlash</h3><p>Landing page va oddiy saytlar.</p></div>
+      <div class="card"><img src="img/video-editing.jpg"><h3>Video Montaj</h3><p>Reels/Shorts montaji.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-wrap">
+    <p>© 2026 • Create by <strong>Khasanboy</strong></p>
+    <div class="socials">
+      <a href="https://www.instagram.com/erknv_hd/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://t.me/videolar_pg_4k" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram"></a>
+      <a href="https://wa.me/998XXXXXXXXX" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"></a>
+    </div>
+  </div>
+</footer>
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+
+  // Theme toggle
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    root.classList.add('light');
+    toggle.textContent = '☀️';
+  }
+
+  toggle.addEventListener('click', () => {
+    root.classList.toggle('light');
+    const isLight = root.classList.contains('light');
+    toggle.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>
